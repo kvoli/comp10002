@@ -17,6 +17,16 @@ int main(int argc, char const* argv[])
   return 0;
 }
 
+
+
+
+
+
+
+// sum of factors for 10 is: 1, 2, 5 = 8
+
+
+
 int amicable_pair(int a, int b) {
   return factor_sum(a) == b && factor_sum(b) == a;
 }
@@ -24,8 +34,21 @@ int amicable_pair(int a, int b) {
 int factor_sum(int a) {
   int sum = 0;
 
-  for (int i = 1 ; i*i <= a; ++i)
-    sum += a % i ? i : 0;
+  for (int i = 1 ; i < a; ++i)
+    if (a % i == 0) {
+      sum += i;
+    } 
 
   return sum;
 }
+
+
+
+
+
+
+
+
+
+
+1
