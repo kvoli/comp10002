@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 // factor_sum(10) = sum(1,2,5) = 8
 
 int factor_sum(int x) {
