@@ -13,7 +13,7 @@ int main(int argc, char const* argv[])
   int n = 10;
   int vi[10];
   // test selection sort
-  printf("\nTest interative selection sort\n");
+  printf("\nTest iterative selection sort\n");
   setvi(vi, n);
   dvi(vi, n);
   sel(vi, n);
@@ -43,12 +43,17 @@ int main(int argc, char const* argv[])
   return 0;
 }
 
+// [3,2,1] first recursive call 3 max n = 3
+// [1,2] second recursive call, 2 max n = 2
+// [1] second recursive call, 2 max n = 2
 void rsel(int* vi, int n) {
   if (n < 2)
     return;
   int max_idx = 0;
+
   for (int i = 0; i < n; ++i)
     max_idx = vi[i] > vi[max_idx] ? i : max_idx;
+
   swap(&(vi[max_idx]), &(vi[n-1]));
   rsel(vi, n-1);
 }
