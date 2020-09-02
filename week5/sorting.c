@@ -58,6 +58,17 @@ void rsel(int* vi, int n) {
   rsel(vi, n-1);
 }
 
+void selsort(int vi[], int n) {
+  
+  for (int i = 0; i < n-1; ++i) {
+    int min_idx = 0;
+    for (int j = i+1; j < n; j++) {
+      if (vi[j] < vi[min_idx]) 
+        min_idx = j;
+    }
+    swap(&(vi[i]), &(vi[min_idx]));
+  }
+}
 void sel(int* vi, int n) {
   int i, j, min_idx;
   for (i = 0; i < n-1; ++i) {
