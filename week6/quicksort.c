@@ -1,13 +1,14 @@
 #include <stdio.h>
 
+int partition(int* vi, int l, int r);
+void quick_sort(int* vi, int l, int r);
 void dvi(int* vi, int n);
 void swap(int* a, int* b);
 void setvi(int* vi, int n);
-int partition(int* vi, int l, int r);
-void quick_sort(int* vi, int l, int r);
 int read_array(int* vi);
 
-int main()
+
+int main(int argc, char const* argv[])
 {
   int vi[1000];
   int n = read_array(vi);
@@ -17,29 +18,30 @@ int main()
   return 0;
 }
 
-
-// This function will find a partition element and move it into its correct spot, returning that index
+// partition everything less than p to the left, and everything thats greater to the right
 int partition(int* vi, int l, int r) {
-  int i = l - 1; // = -1 when we start - (keeps track of the number of elements less than p)
-  int p = vi[r]; // the element we want to partition our array around 
-  // loop over every element up until our last element
-  // move every element < p to the left hand side of the array and increment i by 1
+  int p = vi[r];
+  // variable to keep track of how many elements are less than p
+  int i = l - 1;
+
   for (int j = l; j < r; ++j) {
+    // smaller than our partition - needs to go to the left of p
     if (vi[j] < p) {
-      i++;
+      ++i;
       swap(vi + i, vi + j);
     }
   }
-  swap(vi + i + 1, vi + r);
+  swap(vi + r, vi + i + 1);
   return i + 1;
 }
 
 void quick_sort(int* vi, int l, int r) {
   if (l < r) {
-    // everything >p is on the right hand side
-    // everything <p is on the left hand side
-    int p = partition(vi, l , r);
-    quick_sort(vi, l, p-1);
+    // we get the index p, which corresponds to the correct index of our partition in the sorted array
+    int p = partition(vi, l, r);
+    // sort to the left of our partititon
+    quick_sort(vi, l , p-1);
+    // sort to the right of our partititon
     quick_sort(vi, p+1, r);
   }
 }

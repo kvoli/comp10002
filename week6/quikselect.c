@@ -28,6 +28,7 @@ void qsel(int* vi, int l,int r, int k) {
   }
   return -1;
 }
+
 int partition(int* vi, int l, int r) {
   int p = vi[r];
   int i = l - 1;
@@ -40,6 +41,7 @@ int partition(int* vi, int l, int r) {
   swap(vi+r, vi+i+1);
   return ++i;
 }
+
 
 void dvi(int* vi, int n) {
   printf("[");
