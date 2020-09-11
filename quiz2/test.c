@@ -27,21 +27,6 @@ int sol(int A[], int B[], int nA, int nB) {
 
 
  int is_subset(int A[], int B[], int nA, int nB) {
-    int subset;
-
- 
-    for(int i = 0; i < nB; i++){
-        subset = 0; 
-        for(int j = 0; j < nA; j++){
-            if(A[i] == A[j]){
-                subset = 1;
-            }
-        }
-        if (subset == 0) { 
-            return subset;
-        }
-    }
-    return subset;
 }
 
 
