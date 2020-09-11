@@ -19,7 +19,7 @@ int sol(int A[], int B[], int nA, int nB) {
   for (int i = 0; i < nA; ++i) {
     int check = 0;
     for (int j = 0; j < nB; ++j)
-      check = A[i] == B[j] ? 1 : check == 1 ? 1 : 0;
+      check |= A[i] == B[j] ? 1 : 0;
     if (!check) return 0;
   }
   return 1;
