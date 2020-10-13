@@ -11,21 +11,30 @@ struct stack {
 };
 
 void push(data_t data, stack_t* stack);
-data_t pop(stack_t* stack);
+void pop(stack_t* stack);
+int empty(stack_t* stack);
+data_t peek(stack_t* stack);
 stack_t* new_stack();
 
 int main() { 
   return 0;
 }
 
-data_t pop(stack_t* stack) {
-  data_t res = stack -> head -> data;
+void pop(stack_t* stack) {
   stack -> head = pop_node(stack -> head);
-  return res;
 }
 
 void push(data_t data, stack_t* stack) {
   stack -> head = push_node(data, stack -> head);
+}
+
+int empty(stack_t* stack) {
+  return stack -> size  > 0;
+}
+
+data_t peek(stack_t* stack) { 
+  data_t nil = {0};
+  return empty(stack) ? stack -> head -> data : nil;
 }
 
 stack_t* new_stack() {
